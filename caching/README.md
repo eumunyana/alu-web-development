@@ -1,5 +1,3 @@
-Caching
-
 Learning Objectives:
 What a caching system is
 What FIFO means
