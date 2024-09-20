@@ -22,11 +22,13 @@ elif AUTH_TYPE == "basic_auth":
     from api.v1.auth.basic_auth import BasicAuth
     auth = BasicAuth()
 
+
 @app.errorhandler(404)
 def not_found(error) -> str:
     """ Not found handler
     """
     return jsonify({"error": "Not found"}), 404
+
 
 @app.errorhandler(401)
 def unauthorized_error(error) -> str:
@@ -62,6 +64,7 @@ def before_request() -> str:
 
     if auth.current_user(request) is None:
         abort(403)
+        
 
 if __name__ == "__main__":
     host = getenv("API_HOST", "0.0.0.0")
